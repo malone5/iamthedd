@@ -1,0 +1,17 @@
+{% extends "dd_app/base.html" %}
+
+{% block content %}
+
+<h1>This is the my crews page!</h1>
+
+{% if user %}
+	<p>hello {{user.username}} </p>
+{% endif %}
+
+{{ request.session.testvar }}
+{{ mycontext.testvar }}
+
+
+<h2><a href="{% url 'dd_app:logout' %}">Logout</a></h2>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "dd_app/base.html" %}
+
+{% block content %}
+
+
+<h1>I am the designated driver.</h1>
+
+<h2><a href="{% url 'dd_app:login' %}">Login</a></h2>
+<h2><a href="{% url 'dd_app:logout' %}">Logout</a></h2>
+<h2><a href="{% url 'dd_app:register' %}">Logout</a></h2>
+
+{% endblock %}
