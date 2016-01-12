@@ -42,3 +42,7 @@ def logout_user(request):
 @login_required(redirect_field_name='/login/')
 def mycrews(request):
 	return render(request, 'dd_app/mycrews.html')
+
+@login_required(redirect_field_name='/login/')
+def create_crew(request):
+	return render(request, 'dd_app/create_crew.html')
