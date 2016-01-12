@@ -1,1 +1,24 @@
-Create crew
+{% extends "dd_app/base.html" %}
+
+{% block content %}
+
+
+<form method="post" action="{% url 'dd_app:create_crew' %}">
+{% csrf_token %}
+
+{% for field in form %}
+<div>
+	{{ field.errors }}
+	{{ field.label_tag}}: {{ field }}
+	{% if field.help_text %}
+	<p class="help"> {{ field.help_text|safe }}</p>
+	{% endif %}
+</div>
+{% endfor %}
+
+<input type="submit" value="Create Crew" />
+{# <input type="hidden" name="next" value="{{ next }}" /> #}
+</form>
+
+
+{% endblock %}

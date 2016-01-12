@@ -6,6 +6,25 @@
 
 {% if user %}
 	<p>hello {{user.username}} </p>
+	<h3>Crew List</h3>
+	{% if crews %}
+		{% for crew in crews %}
+			<a href="{% url 'dd_app:crew' crew.id %}">{{ crew.crew_name }}</a>
+		{% endfor %}
+	{% else %}
+	 You have no crews at the momment
+	{% endif %}
+
+	<h3>Story List</h3>
+	{% if stories %}
+		{% for story in stories %}
+			{{ story.story_name }}
+		{% endfor %}
+	{% else %}
+	 You have no stories at the momment
+	{% endif %}
+
+
 {% endif %}
 
 {{ request.session.testvar }}
