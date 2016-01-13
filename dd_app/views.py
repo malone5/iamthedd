@@ -68,6 +68,17 @@ def create_crew(request):
 
 @login_required(redirect_field_name='/login/')
 def crew(request, crew_id):
-	# match user id with Crew Id
-	# match all storys that share that crew ID
-	return render(request, 'dd_app/crew_page.html')
+
+	if request.user:
+		context['crews'] = Crew.objects.all().filter(owner=request.user)
+		context['stories'] = Story.objects.all().filter(creator=request.user)
+		return render(request, 'dd_app/crew_page.html', context)
+	else:
+		return render(request, 'dd_app/crew_page.html')
+
+
+def story(request, story_id):
+	context = {}
+	context['story'] = Story.objects.get(id=story_id)
+
+	return render(request, 'dd_app/story.html', context)

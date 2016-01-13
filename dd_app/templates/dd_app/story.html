@@ -1,0 +1,28 @@
+{% extends "dd_app/base.html" %}
+
+{% block content %}
+
+<h1>This is the story page!</h1>
+
+{% if story %}
+
+	<p>Story: {{ story.story_name }}</p>
+	<p>crew: {{ story.crew }}</p>
+	<p>creator: {{ story.creator }}</p>
+	<p>content: {{ story.content }}</p>
+	
+	
+
+{% endif %}
+
+
+
+{{ request.session.testvar }}
+{{ mycontext.testvar }}
+
+<h2><a href="{% url 'dd_app:create_crew' %}">Create Crew</a></h2>
+
+
+<h2><a href="{% url 'dd_app:logout' %}">Logout</a></h2>
+
+{% endblock %}

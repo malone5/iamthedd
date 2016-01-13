@@ -18,7 +18,8 @@
 	<h3>Story List</h3>
 	{% if stories %}
 		{% for story in stories %}
-			{{ story.story_name }}
+		<a href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}</a>
+			
 		{% endfor %}
 	{% else %}
 	 You have no stories at the momment
