@@ -1,0 +1,48 @@
+.center {
+  text-align: center;
+}
+
+.center form {
+  display: inline-block;
+}
+
+.basic-form form {
+  background: white;
+  padding: 10px;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  background-color: #003333;
+}
+
+
+
+
+/* icons */
+
+.icon-home::after  {
+  background: url(../img/home.svg)
+}
+
+
+.icon-login::after  {
+  background: url(../img/login.svg)
+}
+.icon-logout::after  {
+  background: url(../img/logout.svg)
+}
+
+.icon-register::after  {
+  background: url(../img/register.svg)
+}
+
+.icon-about::after  {
+  background: url(../img/about.svg)
+}
+
+.icon-my-crews::after  {
+  background: url(../img/my-crews.svg)
+}

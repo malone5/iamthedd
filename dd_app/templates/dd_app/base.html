@@ -1,18 +1,30 @@
+{% load staticfiles %}
+
 <!doctype html>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
 
-  <title>I am the DD</title>    <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <title>I am the DD</title> 
 
 
+
+  <link rel="stylesheet" href="{% static 'dd_app/css/reset.css' %}"> <!-- CSS reset -->
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'dd_app/css/style.css' %}">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+
+  
+  <link rel="stylesheet" href="{% static 'dd_app/css/style.css' %}"> <!-- Resource style -->
+  <link rel="stylesheet" href="{% static 'dd_app/css/main.css' %}"> <!-- Custom style -->
+  <script src="{% static 'dd_app/js/modernizr.js' %}"></script> <!-- Modernizr -->
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,19 +32,51 @@
 </head>
 
 <body>
-  <header class="text-center">
-    <a href="{% url 'dd_app:index' %}">I am the dd</a>
+
+  <header>
+  <div class="logo">i am the dd</div>
+
+    <nav class="cd-stretchy-nav">
+      <a class="cd-nav-trigger" href="#0">
+        <span aria-hidden="true"></span>
+      </a>
+
+      <ul class="cd-3d-nav">
+
+        <li><a class="icon-home"  href="{% url 'dd_app:index' %}">Home</a></li>
+        {% if user.is_authenticated %}
+        <li><a class="icon-my-crews" href="{% url 'dd_app:mycrews' %}">My Crews</a></li>
+        <li><a class="icon-logout" href="{% url 'dd_app:logout' %}">Logout</a></li>
+        {% else %}
+        <li><a class="icon-login" href="{% url 'dd_app:login' %}">Login</a></li>
+        <li><a class="icon-register" href="{% url 'dd_app:register' %}">Register</a></li>
+        {% endif %}
+        <li><a  class="icon-about" href="#">About</a></li>
+      </ul>
+
+      <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
   </header>
 
-  {% block content %}{% endblock %}
 
-  <div class="row text-center">
-    This is the footer in base.html
-  </div>
+
+
+  <main class="cd-main-content">
+    {% block content %}{% endblock %} {# </main> in here #}
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="row text-center">
+      This is the footer in base.html
+  </footer>
+  
 
 
     
   <!-- Latest compiled and minified JavaScript -->
+  <script src="{% static 'dd_app/js/jquery-2.1.4.js' %}"></script>
+  <script src="{% static 'dd_app/js/main.js' %}"></script> <!-- Resource jQuery -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

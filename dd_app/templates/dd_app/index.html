@@ -4,6 +4,7 @@
 
 
 <h1>I am the designated driver.</h1>
+<h1>And here is how my night went.</h1>
 
 
 <h2><a href="{% url 'dd_app:register' %}">Register</a></h2>
@@ -13,5 +14,6 @@
 {% else %}
 <h2><a href="{% url 'dd_app:login' %}">Login</a></h2>
 {% endif %}
+
 
 {% endblock %}
