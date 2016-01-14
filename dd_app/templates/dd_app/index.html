@@ -1,19 +1,30 @@
 {% extends "dd_app/base.html" %}
 
 {% block content %}
+<div class="row" >
+	<div class="col-12-md text-center">
+		<h1>I am the designated driver.</h1>
+		<h4>Stories from the glorified adult babysitters.</h4>
+		
+	</div>
+</div>
+<div class="row" >
+	<div class="col-md-12 text-center">
+		<p class="btn btn-warning btn-start outline"> Make a crew profile. Define your night out. See what happens next.</p>	
+	</div>
+</div>
 
+</hr>
 
-<h1>I am the designated driver.</h1>
-<h1>And here is how my night went.</h1>
+<div class="row">
+	<div class="col-md-12">
+		<h3>What is "iamthedd"?</h3>
+		<p> Iamthedd is essentially a story generator that places you and your crew in a night out for some drinks and you are the designated driver, 
+		reporting on the events that took place. Think of it as the classic "Mid-Libs" game with a twist. All you have to do is add your friends to a crew,
+		set up a brief personality profile, define some event variables(venue, holiday, birthday, ect. ), and submit you crew to generate a unique story about you night out.  </p>	
+	</div>
+</div>
 
-
-<h2><a href="{% url 'dd_app:register' %}">Register</a></h2>
-{% if user.is_authenticated %}
-<h2><a href="{% url 'dd_app:mycrews' %}"> My Crews</a></h2>
-<h2><a href="{% url 'dd_app:logout' %}">Logout</a></h2>
-{% else %}
-<h2><a href="{% url 'dd_app:login' %}">Login</a></h2>
-{% endif %}
 
 
 {% endblock %}
