@@ -25,23 +25,28 @@ nav .btn-default {
 
 .basic-form form {
   color: #000;
-  background: #4B956F;
+  background: white;
   padding: 40px;
   margin: 10px;
   border-width: 10px;
   border-style: double;
   border-radius: 40px;
+  text-align: left;
 }
 
 .logo {
-  position: relative;
+  display: block;
   z-index: 2;
   padding: 20px;
-  background-color: #003333;
 }
 
 .btn-start {
   font-weight: 700;
+}
+
+.nav-btn {
+  float: right;
+  background-color: #009999;
 }
 
 /* Bootstrap override */
@@ -50,6 +55,31 @@ nav .btn-default {
   font-size: 11px;
   padding: 4px;
 }
+
+.thumbnail {
+  height: auto;
+  width: 100%;
+}
+
+.new-crew {
+  display: block;
+  height: 250px;
+  width: 100%;
+  background: transparent;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.glyphicon-plus {
+  display: block;
+  text-align: center;
+  top: 40%;
+  font-size: 40px;
+  margin: 0;
+
+}
+
+
 
 
 

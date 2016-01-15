@@ -2,20 +2,44 @@
 
 {% block content %}
 
-<h1>This is the my crews page!</h1>
-
 {% if user %}
-	<p>hello {{user.username}} </p>
-	<h3>Crew List</h3>
+<div class="row">
+	<h1 class="text-center">{{user.username}}'s crews</h1>
+</div>
+{% endif %}
+
+<div class="row">
+	<h1 class="text-center">My Crews</h1>
+	<div class="col-md-8 col-md-offset-2">
 	{% if crews %}
 		{% for crew in crews %}
-			<a href="{% url 'dd_app:crew' crew.id %}">{{ crew.crew_name }}</a>
+		<div class="col-xs-6 col-md-4">
+		    <div href="{% url 'dd_app:crew' crew.id %}" class="thumbnail">
+		    	<img class="img-responsive" src="http://placehold.it/250x250" alt="Crew picture here">
+		    	<p class="text-center"> {{ crew.crew_name }}</p>	
+		    	<div class="caption">	
+		    		<button class="btn sharp"><i class="glyphicon glyphicon-edit"></i></button>
+		    		<button class="btn sharp pull-right"><i class="glyphicon glyphicon-remove "></i></button>
+		    	</div>
+		   	</div>
+		</div>
 		{% endfor %}
 	{% else %}
 	 You have no crews at the momment
 	{% endif %}
+		<a href="{% url 'dd_app:create_crew' %}" title="new crew">
+			<div class="col-xs-6 col-md-4">
+				<div  class="new-crew">
+		    		<i class="glyphicon glyphicon-plus"></i>
+		   		</div>
+			</div>
+		</a>
+	</div>
+</div>
 
-	<h3>Story List</h3>
+<div class="row">
+	<h1 class="text-center">Story List</h1>
+	<div class="col-md-8 col-md-offset-2">
 	{% if stories %}
 		{% for story in stories %}
 		<a href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}</a>
@@ -24,14 +48,14 @@
 	{% else %}
 	 You have no stories at the momment
 	{% endif %}
+	</div>
+</div>
 
-
-{% endif %}
 
 {{ request.session.testvar }}
 {{ mycontext.testvar }}
 
-<h2><a href="{% url 'dd_app:create_crew' %}">Create Crew</a></h2>
+
 
 
 {% endblock %}
