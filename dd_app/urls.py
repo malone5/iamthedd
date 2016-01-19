@@ -1,7 +1,9 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
 from . import views
+from dd_app.views import CrewView
+
 
 app_name = 'dd_app'
 urlpatterns = [
@@ -15,8 +17,11 @@ urlpatterns = [
 	url(r'^mycrews/$', views.mycrews, name='mycrews'), # list of crews CRUD Crews
 	url(r'^mycrews/create/$', views.create_crew, name='create_crew'), # create crew
 
-	url(r'^crew/(?P<crew_id>[0-9]+)/$', views.crew, name='crew'), 
+	#url(r'^crew/(?P<crew_id>[0-9]+)/$', views.crew, name='crew'), 
+	url(r'^crew/(?P<crew_id>[0-9]+)/$', CrewView.as_view(), name='crew'), 
 	url(r'^crew/(?P<crew_id>[0-9]+)/add_crew_member/$', views.create_crew_member, name='create_crew_member'),
+
+
 	#url(r'^crew/(?P<crew_id>[0-9]+)/delete_crew_member/$', views.delete_crew_member, name='delete_crew_member'),
 
 	url(r'^story/(?P<story_id>[0-9]+)/$', views.story, name='story'), #lists of stories and creat new story CRUD Stories

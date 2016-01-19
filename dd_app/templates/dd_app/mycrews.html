@@ -18,7 +18,7 @@
 		    	<img class="img-responsive" src="http://placehold.it/250x250" alt="Crew picture here">
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
-		    		<a href="{% url 'dd_app:crew' crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
+		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
 		    		<button class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
 		    	</div>
 		   	</div>

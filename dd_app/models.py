@@ -6,7 +6,9 @@ from django.db import models
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 
-# Create your models here.
+# Create your models here
+
+
 class Crew(models.Model):
 	crew_name = models.CharField(max_length=20)
 	owner = models.ForeignKey(User, default=None)
