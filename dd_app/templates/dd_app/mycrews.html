@@ -18,8 +18,8 @@
 		    	<img class="img-responsive" src="http://placehold.it/250x250" alt="Crew picture here">
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
-		    		<button class="btn sharp"><i class="glyphicon glyphicon-edit"></i></button>
-		    		<button class="btn sharp pull-right"><i class="glyphicon glyphicon-remove "></i></button>
+		    		<a href="{% url 'dd_app:crew' crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
+		    		<button class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
 		    	</div>
 		   	</div>
 		</div>
@@ -27,7 +27,7 @@
 	{% else %}
 	 You have no crews at the momment
 	{% endif %}
-		<a href="{% url 'dd_app:create_crew' %}" title="new crew">
+		<a href="{% url 'dd_app:create_crew' %}" title="Create New Crew">
 			<div class="col-xs-6 col-md-4">
 				<div  class="new-crew">
 		    		<i class="glyphicon glyphicon-plus"></i>
@@ -38,12 +38,13 @@
 </div>
 
 <div class="row">
-	<h1 class="text-center">Story List</h1>
+	<h1 class="text-center">My Stories</h1>
 	<div class="col-md-8 col-md-offset-2">
 	{% if stories %}
 		{% for story in stories %}
-		<a href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}</a>
-			
+		<div class="col-xs-6 col-md-3">
+			<button class="btn btn-success outline"><a href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}</a></button>
+		</div>
 		{% endfor %}
 	{% else %}
 	 You have no stories at the momment

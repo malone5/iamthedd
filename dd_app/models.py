@@ -16,7 +16,13 @@ class Crew(models.Model):
 		return self.crew_name
 
 	def get_members(self):
-		pass
+		return CrewMember.objects.filter(crew_name=self.crew_name)
+
+	def verify_crew(self, logged_in_user):
+		# Check and see if the owner of this crew matches the user that is logged in.
+		if self.owner == logged_in_user:
+			return True
+		return False
 
 
 class CreateCrewForm(forms.ModelForm):
@@ -29,10 +35,17 @@ class CreateCrewForm(forms.ModelForm):
 
 class CrewMember(models.Model):
 	name = models.CharField(max_length=20)
-	crew_name = models.ForeignKey(Crew)
+	crew = models.ForeignKey(Crew)
 
 	def __str__(self):
 		return self.name
+
+class CreateCrewMemberForm(forms.ModelForm):
+    class Meta:
+        model = CrewMember
+        exclude = ('crew',)
+        fields = ('name', 'crew')
+
 
 class Story(models.Model):
 	story_name = models.CharField(max_length=30)

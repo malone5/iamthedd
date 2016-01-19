@@ -2,23 +2,36 @@
 
 {% block content %}
 
+{% if user %}
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+	<form method="post" action="{% url 'dd_app:create_crew' %}">
+	{% csrf_token %}
 
-<form method="post" action="{% url 'dd_app:create_crew' %}">
-{% csrf_token %}
-
-{% for field in form %}
-<div>
-	{{ field.errors }}
-	{{ field.label_tag}}: {{ field }}
-	{% if field.help_text %}
-	<p class="help"> {{ field.help_text|safe }}</p>
-	{% endif %}
+	{% for field in form %}
+	<div>
+		{{ field.errors }}
+		{{ field.label_tag}}: {{ field }}
+		{% if field.help_text %}
+		<p class="help"> {{ field.help_text|safe }}</p>
+		{% endif %}
+	</div>
+	{% endfor %}
+	<br />
+	<div class="text-center">
+		<input type="submit" value="Create Crew" />
+	</div>
+	
+	{# <input type="hidden" name="next" value="{{ next }}" /> #}
+	</form>
 </div>
-{% endfor %}
+</div>
 
-<input type="submit" value="Create Crew" />
-{# <input type="hidden" name="next" value="{{ next }}" /> #}
-</form>
+
+{% endif %}
+
+
+
 
 
 {% endblock %}

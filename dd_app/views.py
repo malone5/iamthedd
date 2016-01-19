@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse
 from django.views import generic
@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 from . import models
-from .models import Crew, CrewMember, CreateCrewForm, Story
+from .models import Crew, CrewMember, CreateCrewForm, CreateCrewMemberForm, Story
 from .forms import UserCreateForm
 
 
@@ -51,6 +51,34 @@ def mycrews(request):
 	else:
 		return render(request, 'dd_app/mycrews.html')
 
+
+@login_required(redirect_field_name='/login/')
+def crew(request, crew_id):
+	
+	context = {}
+	crew = Crew.objects.get(id=crew_id)
+	context['crew'] = crew
+
+	if request.user and crew:
+		if crew.verify_crew(request.user):			
+			context['crew_members'] = CrewMember.objects.filter(crew=crew)
+			#context['stories'] = Story.objects.all().filter(creator=request.user)
+			if request.method == 'POST':
+				form = CreateCrewMemberForm(request.POST)		
+				if form.is_valid():	
+					obj = form.save(commit=False)
+					obj.crew = crew
+					form.save()
+					return HttpResponseRedirect(reverse('dd_app:crew', args=(crew.id,)))
+
+			context['form'] = CreateCrewMemberForm()
+			return render(request, 'dd_app/crew_page.html', context)
+		else:
+			return HttpResponseForbidden('<h2>You are not allowed to view this crew.</h2>')
+	else:
+		return render(request, 'dd_app/crew_page.html', context )
+
+
 @login_required(redirect_field_name='/login/')
 def create_crew(request):
 	if request.method == 'POST':
@@ -66,15 +94,27 @@ def create_crew(request):
 
 	return render(request, 'dd_app/create_crew.html', {'form': form})
 
-@login_required(redirect_field_name='/login/')
-def crew(request, crew_id):
 
-	if request.user:
-		context['crews'] = Crew.objects.all().filter(owner=request.user)
-		context['stories'] = Story.objects.all().filter(creator=request.user)
-		return render(request, 'dd_app/crew_page.html', context)
+# CRUD FOR CREW MEMBERS
+@login_required(redirect_field_name='/login/')
+def create_crew_member(request, crew_id):
+	crew = Crew.objects.get(id=crew_id)
+	if request.method == 'POST':
+		form = CreateCrewMemberForm(request.POST)		
+		if form.is_valid():	
+			obj = form.save(commit=False)
+			obj.crew = crew
+			form.save()
+			return HttpResponseRedirect(reverse('dd_app:crew', args=(crew.id,)))
+			#return HttpResponseRedirect('/mycrews/')
 	else:
-		return render(request, 'dd_app/crew_page.html')
+		form = CreateCrewMemberForm()
+	context = {}
+	context['form'] = form
+	context['crew'] = crew
+	return render(request, 'dd_app/add_member.html', context)
+
+
 
 
 def story(request, story_id):
