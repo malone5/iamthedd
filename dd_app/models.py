@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 
 class Crew(models.Model):
 	crew_name = models.CharField(max_length=20)
-	owner = models.ForeignKey(User, default=None)
+	owner = models.ForeignKey(User, default=User)
 	date_created = models.DateTimeField('date created', default=timezone.now())
 
 	def __str__(self):
