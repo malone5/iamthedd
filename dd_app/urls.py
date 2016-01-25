@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 
 from . import views
-from dd_app.views import CrewView, RegisterView, CreateCrewView, DeleteCrewMemberView, DeleteCrewView, DeleteStoryView
+from dd_app.views import CrewView, RegisterView, CreateCrewView, DeleteCrewMemberView, DeleteCrewView, DeleteStoryView, CreateStoryView
 
 
 app_name = 'dd_app'
@@ -16,6 +16,7 @@ urlpatterns = [
 
 	url(r'^mycrews/$', views.mycrews, name='mycrews'), # list of crews CRUD Crews
 	url(r'^mycrews/create/$', CreateCrewView.as_view(), name='create_crew'), # create crew
+	url(r'^mycrews/new_story/$', CreateStoryView.as_view(), name='create_story'),
 	
 
 	#url(r'^crew/(?P<crew_id>[0-9]+)/$', views.crew, name='crew'), 
@@ -23,6 +24,7 @@ urlpatterns = [
 	url(r'^crew/delete_member/(?P<pk>\d+)/$', DeleteCrewMemberView.as_view(), name='delete_member'),
 	url(r'^crew/delete_crew/(?P<pk>\d+)/$', DeleteCrewView.as_view(), name='delete_crew'),
 	url(r'^crew/delete_story/(?P<pk>\d+)/$', DeleteStoryView.as_view(), name='delete_story'),
+	
 	#url(r'^crew/(?P<crew_id>[0-9]+)/add_crew_member/$', CreateCrewMemberView.as_view(), name='create_crew_member'),
 
 

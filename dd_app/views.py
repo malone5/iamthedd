@@ -17,8 +17,9 @@ from django.utils.decorators import method_decorator
 
 
 from . import models
-from .models import Crew, CrewMember, CreateCrewForm, CreateCrewMemberForm, Story
-from .forms import UserCreateForm
+from .models import Crew, CrewMember, Story, CreateCrewForm, CreateCrewMemberForm
+from .forms import UserCreateForm, StoryDetailsForm
+from .generator import StoryGenerator
 
 
 # Create your views here.
@@ -146,6 +147,34 @@ class CreateCrewView(View):
 			form.save()
 			return HttpResponseRedirect('/mycrews/')
 		
+
+@method_decorator(login_required, name='dispatch')
+class CreateStoryView(View):
+
+	def get(self, request):
+
+		form = StoryDetailsForm()
+		form.fields['crew'].queryset = Crew.objects.filter(owner=request.user)
+		form.fields['creator'].queryset = User.objects.filter(id=request.user.id)
+		return render(request, 'dd_app/new_story.html', {'form': form})
+		
+	#generate the story here. DOnt forget the CREW and USER
+	def post(self, request):
+		data = request.POST
+
+		form = StoryDetailsForm(data)
+		print(data['obj1'])
+		return HttpResponse(data['obj1'])
+
+		if form.is_valid():	
+			form_obj = form.save(commit=False)
+			form_obj.owner = request.user
+			gen = StoryGenerator(data)
+
+			form.generate_story(form.request.POST) # creates a dict of sub-stories
+			# form.save() # iterates though substories and saves them in database
+			# return HttpResponseRedirect('/mycrews/')
+
 
 
 def story(request, story_id):

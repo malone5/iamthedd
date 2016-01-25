@@ -53,6 +53,13 @@
 	{% else %}
 	 You have no stories at the momment
 	{% endif %}
+		<a href="{% url 'dd_app:create_story' %}" title="Create New Story">
+			<div class="col-xs-6 col-md-4">
+				<div  class="btn outline new-story">
+		    		<i class="glyphicon glyphicon-plus"></i>New Story
+		   		</div>
+			</div>
+		</a>
 	</div>
 </div>
 

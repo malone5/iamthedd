@@ -31,7 +31,7 @@
 
 	{% for field in form %}
 	<div>
-		{{ field.label_tag}}: {{ field }}<span>{{ field.errors }}</span>
+		{{ field.label_tag}} {{ field }}<span>{{ field.errors }}</span>
 
 		{% if field.help_text %}
 		<p class="help"> {{ field.help_text|safe }}</p>
