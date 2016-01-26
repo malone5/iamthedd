@@ -10,7 +10,7 @@ SUPER_FRIENDLY = 'Super-friendly'
 
 PERSONALITY_CHOICES = (
 	(ANGRY, 'Angry'),
-	(PARENT, 'A Parental Figure'),
+	(PARENT, 'Parental Figure'),
 	(DRAMA_QUEEN, 'Drama-queen'),
 	(FLIRT, 'Flirt'),
 	(NO_CHANGE, 'No Change'),
@@ -20,10 +20,14 @@ PERSONALITY_CHOICES = (
 	(SUPER_FRIENDLY, 'Super-friendly'),
 )
 
+GENDER_CHOICES = (
+		('Male', 'Male'),
+		('Female', 'Female')
+	)
+
 VENUE_CHOICES = (
 	('Bar', 'Bar'),
 	('Club', 'Club'),
-	('HouseParty', 'HouseParty'),
 	
 
 )

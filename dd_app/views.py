@@ -17,7 +17,7 @@ from django.utils.decorators import method_decorator
 
 
 from . import models
-from .models import Crew, CrewMember, Story, CreateCrewForm, CreateCrewMemberForm
+from .models import Crew, CrewMember, Story, MemberSubStory, CreateCrewForm, CreateCrewMemberForm, CreateStoryForm
 from .forms import UserCreateForm, StoryDetailsForm
 from .generator import StoryGenerator
 
@@ -153,32 +153,43 @@ class CreateStoryView(View):
 
 	def get(self, request):
 
-		form = StoryDetailsForm()
+		form = CreateStoryForm()
 		form.fields['crew'].queryset = Crew.objects.filter(owner=request.user)
-		form.fields['creator'].queryset = User.objects.filter(id=request.user.id)
 		return render(request, 'dd_app/new_story.html', {'form': form})
-		
-	#generate the story here. DOnt forget the CREW and USER
-	def post(self, request):
-		data = request.POST
 
-		form = StoryDetailsForm(data)
-		print(data['obj1'])
-		return HttpResponse(data['obj1'])
+	def post(self, request):
+		form = CreateStoryForm(request.POST)
 
 		if form.is_valid():	
-			form_obj = form.save(commit=False)
-			form_obj.owner = request.user
-			gen = StoryGenerator(data)
+			
+			# 1. Create the story object and add to the database
+			story_obj = form.save(commit=False)
+			story_obj.creator = request.user
+			story_obj.save()
 
-			form.generate_story(form.request.POST) # creates a dict of sub-stories
-			# form.save() # iterates though substories and saves them in database
-			# return HttpResponseRedirect('/mycrews/')
+			# 2. Loop through the crew members and create a substory for each member. 
+			# (Each substory will be linked to the Main story via ForignKey)
+			gen = StoryGenerator(venue=story_obj.venue)
+			crew_members = CrewMember.objects.filter(crew=story_obj.crew)
+			for member in crew_members:
+				print("Creating substory for: ".format(member.name))
+				substory = gen.createSubStory(member)
+				submitted_substory = MemberSubStory.objects.create(story=story_obj, member=member, content=substory)
+				if submitted_substory == None:
+					return HttpResponse("There was a problem creating your story. Sorry!")
+			
+			return HttpResponseRedirect('/mycrews/') # should change this to rediract to the story page
+
+		else:
+			return render(request, 'dd_app/new_story.html', {'form': form})
 
 
 
 def story(request, story_id):
 	context = {}
-	context['story'] = Story.objects.get(id=story_id)
+	story = Story.objects.get(id=story_id)
+	context['story'] = story
+	substories = MemberSubStory.objects.filter(story=story)
+	context['substories'] = substories
 
 	return render(request, 'dd_app/story.html', context)

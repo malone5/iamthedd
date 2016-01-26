@@ -7,6 +7,8 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
+from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
+
 # Create your models here
 
 
@@ -37,39 +39,15 @@ class CreateCrewForm(forms.ModelForm):
 
 
 class CrewMember(models.Model):
-	ANGRY = 'Angry'
-	PARENT = 'Parental Figure'
-	DRAMA_QUEEN = 'Drama-queen'
-	FLIRT = 'Flirt'
-	NO_CHANGE = 'No Change'
-	PARTY_STARTER = 'Party Starter'
-	REBEL = 'Rebel'
-	RECKLESS = 'Reckless'
-	SUPER_FRIENDLY = 'Super-friendly'
 
-	PERSONALITY_CHOICES = (
-		(ANGRY, 'Angry'),
-		(PARENT, 'Parental Figure'),
-		(DRAMA_QUEEN, 'Drama-queen'),
-		(FLIRT, 'Flirt'),
-		(NO_CHANGE, 'No Change'),
-		(PARTY_STARTER, 'Party Starter'),
-		(REBEL, 'Rebel'),
-		(RECKLESS, 'Reckless'),
-		(SUPER_FRIENDLY, 'Super-friendly'),
-	)
-
-	GENDER_CHOICE = (
-		('Male', 'Male'),
-		('Female', 'Female')
-	)
+	
 
 	name = models.CharField(max_length=20)
 	crew = models.ForeignKey(Crew)
-	gender = models.CharField(max_length=6, choices=GENDER_CHOICE, default='Male')
+	gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default='Male')
 	personality = models.CharField(max_length=20, 
 								choices=PERSONALITY_CHOICES, 
-								default=ANGRY)
+								default='Angry')
 
 
 	def __str__(self):
@@ -90,17 +68,35 @@ class Story(models.Model):
 	story_name = models.CharField(max_length=30)
 	crew = models.ForeignKey(Crew)
 	creator = models.ForeignKey(User)
+	venue = models.CharField(max_length=20,
+							choices=VENUE_CHOICES,
+							default='Bar')
 
 	class Meta:
 		verbose_name = "Story"
 		verbose_name_plural = "Stories"
 		
+
 	def __str__(self):
-		return self.story_name
+		return "'{}' By: {}.".format(self.story_name, self.creator)
 
 	def get_all_substories(self):
 		sub_stories = MemberSubStory.objects.all().filter(id=this.id)
 		return sub_stories
+
+
+class CreateStoryForm(forms.ModelForm):
+    class Meta:
+        model = Story
+        exclude = ('creator',)
+        fields = ('story_name', 'crew', 'venue')
+
+        labels = {
+            'story_name': _('Story Title'),
+        }
+
+
+
 
 class MemberSubStory(models.Model):
 	story = models.ForeignKey(Story)
@@ -112,7 +108,7 @@ class MemberSubStory(models.Model):
 		verbose_name_plural = "SubStories"
 		
 	def __str__(self):
-		return "{}'s part in, '{}'".format(this.member, this.story)
+		return "{}'s part in, '{}'".format(self.member, self.story)
 
 	def get_member_dict(self, crew):
 		member_list = CrewMember.objects.all().filter(crew_name=crew)

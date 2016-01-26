@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Crew, CrewMember
+from .models import Crew, CrewMember, Story
 from .story_constants import VENUE_CHOICES
 
 class UserCreateForm(UserCreationForm):
@@ -24,16 +24,17 @@ class StoryDetailsForm(forms.Form):
 	story_name = forms.CharField(max_length=30)
 	venue = forms.ChoiceField(choices=VENUE_CHOICES)
 
-	# def generate_story(self, data):
-	# 	dd = data['creator']
-	# 	venue = data['venue']
-	# 	obj1 = data['obj1']
-	# 	obj2 = data['obj2']
-	# 	verb1 = data['verb1']
-	# 	verb2 = data['verb2']
+	class Meta:
+		model = Story
+		fields = ("story_name", "crew", "creator", "venue")
+		exclude = ["creator"]
 
-	# 	# get the crew members
-		#
+	def save(self, commit=True):
+		user = super(StoryDetailsForm, self).save(commit=False)
+		if commit:
+			user.save()
+		return user
+
 
 
 

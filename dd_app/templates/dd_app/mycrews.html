@@ -15,7 +15,7 @@
 		{% for crew in crews %}
 		<div class="col-xs-6 col-md-4">
 		    <div href="{% url 'dd_app:crew' crew.id %}" class="thumbnail">
-		    	<img class="img-responsive" src="http://placehold.it/250x250" alt="Crew picture here">
+		    	<img class="img-responsive" src="http://placehold.it/250x50" alt="Crew picture here">
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
 		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
@@ -43,11 +43,11 @@
 	{% if stories %}
 		{% for story in stories %}
 		<div class="col-xs-6 col-md-3">
-			<button class="btn btn-success outline">
-				<a href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}</a>
-				<a href="{% url 'dd_app:story' story.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
-				<a href="{% url 'dd_app:delete_story' story.id %}"><span class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></span></a>
-			</button>
+
+				<a class="btn btn-success outline" href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}
+				<a href="{% url 'dd_app:delete_story' story.id %}"><span class="btn sharp" title="Delete"><i class="glyphicon glyphicon-remove "></i></span></a>
+				</a>
+				
 		</div>
 		{% endfor %}
 	{% else %}

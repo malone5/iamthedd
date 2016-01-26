@@ -9,20 +9,24 @@
 	<p>Story: {{ story.story_name }}</p>
 	<p>crew: {{ story.crew }}</p>
 	<p>creator: {{ story.creator }}</p>
-	<p>content: {{ story.content }}</p>
-	
+
+	{% if context.substories %}
+	SUBSTORIES
+		{% for substory in substories %}
+		<h3>{{ substory.member }}</h3>
+		<p>{{ substory.content }}</p>
+		{% endfor %}
+	{% endif %}
 	
 
 {% endif %}
 
+{% for substory in substories %}
+<h3>{{ substory.member.name }}</h3>
+<p>{{ substory.content }}</p>
+{% endfor %}
 
 
-{{ request.session.testvar }}
-{{ mycontext.testvar }}
 
-<h2><a href="{% url 'dd_app:create_crew' %}">Create Crew</a></h2>
-
-
-<h2><a href="{% url 'dd_app:logout' %}">Logout</a></h2>
 
 {% endblock %}

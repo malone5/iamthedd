@@ -2,6 +2,7 @@ import random
 from .story_resources.venue_templates import VENUE_TEMPLATES
 from .story_resources.personality_actions import PERSONALITY_ACTIONS
 
+
 class StoryGenerator(object):
 	"""docstring for StoryGenerator"""
 	def __init__(self, venue):
@@ -10,6 +11,7 @@ class StoryGenerator(object):
 		# seld.dd = story_variables['creator']
 		# self.crew = story_variables['crew']
 		self.venue = venue
+
 
 	def createSubStory(self, member):
 		"""Returns a substory and a string"""
