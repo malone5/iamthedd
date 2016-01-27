@@ -40,6 +40,15 @@ nav .btn-default {
   padding: 20px;
 }
 
+.crew-page i:hover {
+  color: #1E5755;
+}
+
+
+.btn{
+  background-color: #1E5755;
+}
+
 .btn-start {
   font-weight: 700;
 }
@@ -61,25 +70,53 @@ nav .btn-default {
   width: 100%;
 }
 
-.new-crew {
+.new {
   display: block;
   height: 100px;
   width: 100%;
   background: transparent;
   border-style: solid;
   border-width: 5px;
+  color: white;
 }
+
 
 .glyphicon-plus {
   display: block;
   text-align: center;
-  top: 40%;
+  top: 10px;
   font-size: 40px;
   margin: 0;
+  height: 100%;
+  width: 100%;
 
 }
 
+.thumb{
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: 5px;
+  background-color: white;
+}
 
+
+.crew-thumb{
+  height: 100%;
+  width: 100%;
+  border-style: solid;
+  border-width: 5px;
+  background-color: white;
+}
+
+.story-thumb {
+  display: block;
+  text-align: center;
+}
+
+.mycrews-icon {
+  font-size: 30px;
+}
 
 
 

@@ -4,33 +4,41 @@
 
 {% if user %}
 <div class="row">
-	<h1 class="text-center">{{user.username}}'s crews</h1>
+	<h1 class="text-center">Hello, {{user.username}}</h1>
 </div>
 {% endif %}
 
-<div class="row">
+<div class="row crew-page">
 	<h1 class="text-center">My Crews</h1>
 	<div class="col-md-8 col-md-offset-2">
 	{% if crews %}
 		{% for crew in crews %}
 		<div class="col-xs-6 col-md-4">
-		    <div href="{% url 'dd_app:crew' crew.id %}" class="thumbnail">
-		    	<img class="img-responsive" src="http://placehold.it/250x50" alt="Crew picture here">
+		    <div href="{% url 'dd_app:crew' crew.id %}" class="thumb">
+		    	<div  class="text-center mycrews-icon">
+		    		<i class="glyphicon glyphicon-user"></i>
+		    		<i class="glyphicon glyphicon-user"></i>
+		    		<i class="glyphicon glyphicon-user"></i>
+		    		<i class="glyphicon glyphicon-user"></i>
+		   		</div>
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
 		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
-		    		<a href="{% url 'dd_app:delete_crew' crew.id %}"><button class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button></a>
+		    		<a href="{% url 'dd_app:delete_crew' crew.id %}">
+		    			<button class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
+		    		</a>
 		    	</div>
 		   	</div>
 		</div>
 		{% endfor %}
 	{% else %}
-	 You have no crews at the momment
+	 <p>You have no crews at the momment</p>
 	{% endif %}
 		<a href="{% url 'dd_app:create_crew' %}" title="Create New Crew">
 			<div class="col-xs-6 col-md-4">
-				<div  class="new-crew">
-		    		<i class="glyphicon glyphicon-plus"></i>
+				<div  class="new">
+		    		<p><i class="glyphicon glyphicon-plus"></i></p>
+		    		<p class="text-center">New Crew</p>
 		   		</div>
 			</div>
 		</a>
@@ -43,21 +51,33 @@
 	{% if stories %}
 		{% for story in stories %}
 		<div class="col-xs-6 col-md-3">
-
-				<a class="btn btn-success outline" href="{% url 'dd_app:story' story.id %}">{{ story.story_name }}
-				<a href="{% url 'dd_app:delete_story' story.id %}"><span class="btn sharp" title="Delete"><i class="glyphicon glyphicon-remove "></i></span></a>
-				</a>
+			<a href="{% url 'dd_app:story' story.id %}">
+			<div href="{% url 'dd_app:story' story.id %}" class="thumb">
+		    	<div  class="text-center mycrews-icon">
+		    		<i class="glyphicon glyphicon-book"></i>
+		   		</div>
+		    	<p class="text-center"> {{ story.story_name }}</p>	
+		    	<div class="caption">	
+		    		<a href="{% url 'dd_app:delete_story' story.id %}" class="text-center story-thumb">
+		    			<button class="btn sharp" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
+		    		</a>
+		    	</div>
+		   	</div>
+		   	</a>
 				
 		</div>
 		{% endfor %}
 	{% else %}
-	 You have no stories at the momment
+	 <p>You have no stories at the momment</p>
 	{% endif %}
 		<a href="{% url 'dd_app:create_story' %}" title="Create New Story">
-			<div class="col-xs-6 col-md-4">
-				<div  class="btn outline new-story">
-		    		<i class="glyphicon glyphicon-plus"></i>New Story
+			<div class="col-xs-6 col-md-3">
+				
+				<div  class="new">
+		    		<p><i class="glyphicon glyphicon-plus"></i></p>
+		    		<p class="text-center">New Story</p>
 		   		</div>
+		   		
 			</div>
 		</a>
 	</div>
