@@ -23,9 +23,9 @@
 		   		</div>
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
-		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
+		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn btn-md sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
 		    		<a href="{% url 'dd_app:delete_crew' crew.id %}">
-		    			<button class="btn sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
+		    			<button class="btn btn-md sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
 		    		</a>
 		    	</div>
 		   	</div>
@@ -59,7 +59,7 @@
 		    	<p class="text-center"> {{ story.story_name }}</p>	
 		    	<div class="caption">	
 		    		<a href="{% url 'dd_app:delete_story' story.id %}" class="text-center story-thumb">
-		    			<button class="btn sharp" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
+		    			<button class="btn btn-lg sharp" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
 		    		</a>
 		    	</div>
 		   	</div>

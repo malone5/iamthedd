@@ -41,17 +41,16 @@
       <p class="logo"><a href="{% url 'dd_app:index' %}">i am the dd</a></p>
     </div>
     <div class="col-md-6 ">
-      <a class="cd-bouncy-nav-trigger btn nav-btn sharp" href="#">Menu <span class="glyphicon glyphicon-menu-hamburger" ></span></a>
+      <a class="cd-bouncy-nav-trigger btn btn-lg nav-btn sharp" href="#">Menu <span class="glyphicon glyphicon-menu-hamburger" ></span></a>
 
 
     </div>
   </div>
 
   
-
-  
+    <div class="block-content">
     {% block content %}{% endblock %} {# </main> in here #}
-    
+    </div>
     <hr />
     <footer class="row text-center">
       This is the footer in base.html

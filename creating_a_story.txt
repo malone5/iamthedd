@@ -1,0 +1,47 @@
+All stories must have a VENUE associated with them
+Current options for venues
+-Bar
+-Club
+-HouseParty
+
+
+A substory is a story for a single individual in a crew. 
+
+The way 'iamthedd' works is that you specify (1)the name of your story, (2) the venue it will be taking place, and (3) the crew that will be involved. 'iamthedd' then creates a substory for each member of the crew.
+
+------------------------------------
+
+Creating A Substory Template
+
+------------------------------------
+
+Throughout your substory you will have a placeholders that will adapt based on what the user entered. Substory placeholders include:
+
+1. Objective pronoun("him" and "her")
+2. Subjective pronoun("he" and "she")
+3. Name - The name of the crew member
+4. Actions - the randomly generated actions based on personality.
+
+The best way to explain how this works is by and example:
+
+Here is a substory template:
+
+	"{name} goes behind the bar and {0}. This really pissed off the bouncers.
+	So much so, they grabbed {name} by the shirt and slammed {obj_pronoun} against the wall.
+	{name} scream "gets you hands off me! you plebians!" and {1}"
+
+NOTE: Any number withing the curly backets will be a random action based off their peronaliy.
+		So {0}, {1}, {2}  are all actions like "ran out the door". EVERYTING MUST BE IN PAST TENSE.
+
+this template will be applied to a specific member of the crew, for this instance lets say 
+the following crew member profile is applied to this template.
+
+name = Jake
+peronality = Angry
+venue = Bar
+
+Here is what the substory might look like for that member:
+
+""{name} goes behind the bar and {0}. This really pissed off the bouncers.
+	So much so, they grabbed {name} by the shirt and slammed {obj_pronoun} against the wall.
+	{name} scream "gets you hands off me! you plebians!" and {1}""

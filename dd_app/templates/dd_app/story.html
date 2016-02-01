@@ -2,29 +2,38 @@
 
 {% block content %}
 
-<h1>This is the story page!</h1>
+<div class="row">
+<div class="col-xs-8 col-xs-offset-2">
 
 {% if story %}
+	<div class="story">
+		<div class="text-center">
+			<h1 >{{ story.story_name }}</h1>
+			<h2>crew: {{ story.crew }}</h2>
+			<h3>creator: {{ story.creator }}</h3>
 
-	<p>Story: {{ story.story_name }}</p>
-	<p>crew: {{ story.crew }}</p>
-	<p>creator: {{ story.creator }}</p>
+		</div>
+		
 
-	{% if context.substories %}
-	SUBSTORIES
+		{% if context.substories %}
+			{% for substory in substories %}
+			<h3 class="member-name">{{ substory.member }}</h3>
+			<p>{{ substory.content }}</p>
+			{% endfor %}
+		{% endif %}
+
 		{% for substory in substories %}
-		<h3>{{ substory.member }}</h3>
+		<h3>{{ substory.member.name }}</h3>
 		<p>{{ substory.content }}</p>
 		{% endfor %}
-	{% endif %}
-	
-
+	</div>
+{% else %}
+	<h1> This s tory does not exist!</h1>
 {% endif %}
 
-{% for substory in substories %}
-<h3>{{ substory.member.name }}</h3>
-<p>{{ substory.content }}</p>
-{% endfor %}
+
+</div>
+</div>
 
 
 
