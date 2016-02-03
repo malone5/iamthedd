@@ -30,7 +30,7 @@ class StoryGenerator(object):
 			subj_pronoun = "he"
 		else:
 			obj_pronoun = "her"
-			obj_pronoun = "she"	
+			subj_pronoun = "she"	
 
 		for i in range(5):
 			#pick a random action based on personality and add it to the actions list

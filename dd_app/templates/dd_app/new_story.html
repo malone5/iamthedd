@@ -2,25 +2,34 @@
 
 {% block content %}
 
+<h1 class="text-center">Create A New Story</h1>
+
 {% if user %}
 <div class="row">
-<div class="col-md-4 col-md-offset-4">
+<div class="col-xs-12 col-xs-offset-0 text-center">
 	<form method="post" action="{% url 'dd_app:create_story' %}">
 	{% csrf_token %}
 
+
 	{% for field in form %}
-	<div>
+	<div class="form-group">
 		{{ field.errors }}
-		{{ field.label_tag}} {{ field }}
+
+		{{ field.label_tag}}
+    	{{ field }}
+
 		{% if field.help_text %}
-		<p class="help"> {{ field.help_text|safe }}</p>
+			<p class="help"> {{ field.help_text|safe }}</p>
 		{% endif %}
 	</div>
 	{% endfor %}
 	<br />
-	<div class="text-center">
-		<input type="submit" value="How did the night go?" />
-	</div>
+	<p>*NOTE: more venues to come</p>
+
+
+
+	<input type="submit" value="How did the night go?" />
+
 	
 	{# <input type="hidden" name="next" value="{{ next }}" /> #}
 	</form>

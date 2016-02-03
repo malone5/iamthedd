@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
 from django.views.generic.base import View, TemplateView
 from django.views.generic.edit import DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -15,10 +14,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-
 from . import models
 from .models import Crew, CrewMember, Story, MemberSubStory, CreateCrewForm, CreateCrewMemberForm, CreateStoryForm
-from .forms import UserCreateForm, StoryDetailsForm
+from .forms import UserCreateForm
 from .generator import StoryGenerator
 
 
@@ -27,9 +25,6 @@ from .generator import StoryGenerator
 def index(request):
 	return render(request, 'dd_app/index.html')
 
-
-# def logout(request):
-# 	pass
 
 class RegisterView(View):
 
@@ -58,7 +53,7 @@ def logout_user(request):
 @login_required(redirect_field_name='/login/')
 def mycrews(request):
 	context = {}
-	#get crew from database and distplay them
+	# Get crews and stories from database
 	if request.user:
 		context['crews'] = Crew.objects.all().filter(owner=request.user)
 		context['stories'] = Story.objects.all().filter(creator=request.user)
@@ -73,9 +68,9 @@ class CrewView(View):
 	def get(self, request, crew_id):
 		crew = Crew.objects.get(id=crew_id)
 
-		if request.user and crew: #if the user and crew selected exists
-			if crew.verify_crew(request.user): # if crew is under this users name
-				# display form and crew members
+		if request.user and crew: 
+			if crew.verify_crew(request.user):
+
 				crew_members = CrewMember.objects.filter(crew=crew)
 				form = CreateCrewMemberForm()
 				return render(request, 'dd_app/crew_page.html', {'form': form, 
@@ -90,7 +85,7 @@ class CrewView(View):
 		#Create the crew member
 		crew = Crew.objects.get(id=crew_id)
 		form = CreateCrewMemberForm(request.POST)
-		crew_members = CrewMember.objects.filter(crew=crew)		
+		crew_members = CrewMember.objects.filter(crew=crew)
 		if form.is_valid():	
 			obj = form.save(commit=False)
 			obj.crew = crew
@@ -168,7 +163,6 @@ class CreateStoryView(View):
 			story_obj.save()
 
 			# 2. Loop through the crew members and create a substory for each member. 
-			# (Each substory will be linked to the Main story via ForignKey)
 			gen = StoryGenerator(venue=story_obj.venue)
 			crew_members = CrewMember.objects.filter(crew=story_obj.crew)
 			for member in crew_members:
@@ -182,7 +176,6 @@ class CreateStoryView(View):
 
 		else:
 			return render(request, 'dd_app/new_story.html', {'form': form})
-
 
 
 def story(request, story_id):

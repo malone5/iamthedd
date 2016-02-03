@@ -57,7 +57,7 @@ class CreateCrewMemberForm(forms.ModelForm):
     class Meta:
         model = CrewMember
         exclude = ('crew',)
-        fields = ('name', 'personality', 'crew')
+        fields = ('name', 'gender','personality', 'crew')
 
         labels = {
             'personality': _('Best describe them during a night out for drinks'),

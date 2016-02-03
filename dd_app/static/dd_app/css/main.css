@@ -45,9 +45,15 @@ nav .btn-default {
 }
 
 .logo {
+  font-family: 'Lato', sans-serif;
+  font-weight: 1200;
+  color: white;
   display: block;
-  z-index: 2;
   padding: 20px;
+}
+
+.logo:hover {
+  color: orange;
 }
 
 .crew-page i:hover {

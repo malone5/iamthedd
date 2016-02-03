@@ -19,9 +19,9 @@
 
   <link rel="stylesheet" href="{% static 'dd_app/css/style.css' %}">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 
-  
   
   <link rel="stylesheet" href="{% static 'dd_app/css/stretchmenu.css' %}"> <!-- Resource style -->
   <link rel="stylesheet" href="{% static 'dd_app/css/style.css' %}"> <!-- Resource style -->
@@ -37,9 +37,12 @@
 <body>
   <!-- Header -->
   <div class="row">
+    <a  class="logo" href="{% url 'dd_app:index' %}">
     <div class="col-md-6">
-      <p class="logo"><a href="{% url 'dd_app:index' %}">i am the dd</a></p>
+      <span >IAMTHEDD</span>
     </div>
+    </a>
+
     <div class="col-md-6 ">
       <a class="cd-bouncy-nav-trigger btn btn-lg nav-btn sharp" href="#">Menu <span class="glyphicon glyphicon-menu-hamburger" ></span></a>
 
@@ -53,7 +56,7 @@
     </div>
     <hr />
     <footer class="row text-center">
-      This is the footer in base.html
+      &copy; 2016<script>new Date().getFullYear()>2016&&document.write("-"+new Date().getFullYear());</script>, S. Malone.
     </footer>
   
 
