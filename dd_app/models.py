@@ -96,8 +96,6 @@ class CreateStoryForm(forms.ModelForm):
         }
 
 
-
-
 class MemberSubStory(models.Model):
 	story = models.ForeignKey(Story)
 	member = models.ForeignKey(CrewMember)
