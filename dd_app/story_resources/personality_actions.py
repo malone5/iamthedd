@@ -63,10 +63,10 @@ PERSONALITY_ACTIONS = {
 		},
 		'Super-friendly':
 		{
-			'Super-friendly1': 'hugged a random guy and saying, "you look like we could be best friends forever"',
+			'Super-friendly1': 'hugged a random guy and saying, "you look like I could love you"',
 			'Super-friendly2': 'laughed uncontrollably',
 			'Super-friendly3': 'danced in the middle of the dance floor when no one else was out there',
-			'Super-friendly4': 'bought a random gorup of people drinks',
+			'Super-friendly4': 'bought a random gorup of people drinks, but the credit card got declined after they were poured, forcing the random group to pay',
 			'Super-friendly5': 'asked the bartender if they were hiring right now',
 			'Super-friendly6': 'started a dance party in the middle of the floor',
 			'Super-friendly7': 'said "I love you" to 3 different starngers',
