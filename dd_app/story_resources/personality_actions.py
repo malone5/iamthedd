@@ -28,6 +28,9 @@ PERSONALITY_ACTIONS = {
 			'Responsible3': 'got nervous because someone was missing',
 			'Responsible4': 'apologiezed and asked for forgivness',
 			'Responsible5': 'saw someone in the group walk off and chased them down so they diddn\'t get lost',
+			'Responsible6': 'washed their hands like 5 times in a row',
+			'Responsible7': 'got nervous because there we so many drunk people around',
+			'Responsible8': 'answered a phone call from "Mommy"',
 
 		},
 		'Drama-queen':
@@ -35,16 +38,19 @@ PERSONALITY_ACTIONS = {
 			'Drama-queen1': 'said, "I hate about 90 percent of people in this bar"',
 			'Drama-queen2': 'yelled at me, "Why aren\'t you drinking!!!!!',
 			'Drama-queen3': 'said "ugh, I need better friends',
-			'Drama-queen3': 'claimed "my feet hurt" and that the group should go home right now.',
-			'Drama-queen3': 'saw an "ex" and started crying',
+			'Drama-queen4': 'claimed "my feet hurt" and that the group should go home right now.',
+			'Drama-queen5': 'saw an "ex" and started crying',
+			'Drama-queen6': 'thought a girl was giving a mean look and then growled at her like a dog',
 
 		},	
 		'No Change':
 		{
-			'Parent1': 'just stared off into space, aimlessly',
-			'Parent2': 'took a sip of beer and continued bobbing thier head',
-			'Parent3': 'started looking around the bar because there was nothing better to do',
-			'Parent4': 'passed gas and hoped no one noticed.',
+			'NoChange1': 'just stared off into space, aimlessly',
+			'NoChange2': 'took a sip of beer and continued bobbing thier head',
+			'NoChange3': 'started looking around the bar because there was nothing better to do',
+			'NoChange4': 'passed gas and hoped no one noticed.',
+			'NoChange5': 'mumbled, "I would rather be home watching The Notebook"',
+
 
 		},	
 		'Reckless':
@@ -60,7 +66,11 @@ PERSONALITY_ACTIONS = {
 			'Super-friendly1': 'hugged a random guy and saying, "you look like we could be best friends forever"',
 			'Super-friendly2': 'laughed uncontrollably',
 			'Super-friendly3': 'danced in the middle of the dance floor when no one else was out there',
-			'Super-friendly3': 'bought a random gorup of people drinks',
+			'Super-friendly4': 'bought a random gorup of people drinks',
+			'Super-friendly5': 'asked the bartender if they were hiring right now',
+			'Super-friendly6': 'started a dance party in the middle of the floor',
+			'Super-friendly7': 'said "I love you" to 3 different starngers',
+			'Super-friendly7': 'took out their phone and began taking selfies with everyone with a 6 foot radius',
 
 		},	
 	},
