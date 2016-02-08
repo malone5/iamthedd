@@ -29,8 +29,8 @@ PERSONALITY_ACTIONS = {
 			'Responsible4': 'apologiezed and asked for forgivness',
 			'Responsible5': 'saw someone in the group walk off and chased them down so they diddn\'t get lost',
 			'Responsible6': 'washed their hands like 5 times in a row',
-			'Responsible7': 'got nervous because there we so many drunk people around',
-			'Responsible8': 'answered a phone call from "Mommy"',
+			'Responsible7': 'got nervous because there were so many drunk people around',
+			'Responsible8': 'called "Mom" just to check in and asure her that they mad it to the bar',
 
 		},
 		'Drama-queen':
@@ -58,7 +58,7 @@ PERSONALITY_ACTIONS = {
 			'Reckless1': 'took three shots in a row',
 			'Reckless2': 'told the DJ to play more Rap music or he was going to report him to the Feds',
 			'Reckless3': 'made out with a bald girl',
-			'Reckless3': 'saw a half finihed beer and dicided it was a good idea to finish it',
+			'Reckless3': 'saw a half finished beer and decided it was a good idea to finish it',
 
 		},
 		'Super-friendly':
@@ -67,7 +67,7 @@ PERSONALITY_ACTIONS = {
 			'Super-friendly2': 'laughed uncontrollably',
 			'Super-friendly3': 'danced in the middle of the dance floor when no one else was out there',
 			'Super-friendly4': 'bought a random gorup of people drinks, but the credit card got declined after they were poured, forcing the random group to pay',
-			'Super-friendly5': 'asked the bartender if they were hiring right now',
+			'Super-friendly5': 'asked the bartender if they were hiring at this very momment in hopes for a new job',
 			'Super-friendly6': 'started a dance party in the middle of the floor',
 			'Super-friendly7': 'said "I love you" to 3 different starngers',
 			'Super-friendly7': 'took out their phone and began taking selfies with everyone with a 6 foot radius',

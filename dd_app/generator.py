@@ -43,7 +43,8 @@ class StoryGenerator(object):
 		formatted_story = substory_template.format(*actions, 
 													name=name, 
 													obj_pronoun=obj_pronoun, 
-													subj_pronoun=subj_pronoun )
+													subj_pronoun=subj_pronoun,
+													poss_pronoun=poss_pronoun )
 		return formatted_story
 
 
