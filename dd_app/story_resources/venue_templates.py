@@ -6,7 +6,7 @@ VENUE_TEMPLATES = {
 
 			'Bar2':' As soon as we got to the bar, {name} went straight the the back of the bar and {0}. It was probably about 2 hours since I last saw {name},'
 			' I thought we lost {obj_pronoun} for the night but then I saw {name} on the dance floor. I am not sure why {subj_pronoun} was on the dance floor because {subj_pronoun}'
-			' wasn\'t out there dancing, {subj_pronoun} just {1}, and walked around. I had to grab {name} by the shirt and pull {poss_pronoun} away or people were going to think {subj_pronoun} was insane. ',
+			' wasn\'t out there dancing, {subj_pronoun} just {1}, then walked around a bit. I had to grab {name} by the shirt and pull {poss_pronoun} away or people were going to think {subj_pronoun} was insane. ',
 
 			'Bar3':' I thought {name} was going to take it easy that night since {subj_pronoun} had to be up a 6 A.M. but that notion was thrown out the window when {subj_pronoun} {0}. '
 			'I asked {name} how many drinks {subj_pronoun} had and {subj_pronoun} said, "Not that much, I am just buzzed."  Knowing {name}, {subj_pronoun} was not just buzzed. '
@@ -35,7 +35,7 @@ VENUE_TEMPLATES = {
 			'Bar8':' Where do I begin with {name}. {name} had just recently broken up with {poss_pronoun}'
 			' significant other so I knew tonight {name} would be a wildcard.  {name} started off the'
 			' night by "flirting" with the bartender, and by flirting I mean {subj_pronoun} {0}, then winked at the bartender. Following that,'
-			' {name} {1}. The group started getting frustrated with {name} when {subj_pronoun} {3}, and flailed {obj_pronoun} arms around, so we ended the'
+			' {name} {1}. The group started getting frustrated with {name} when {subj_pronoun} {3}, while flailing {obj_pronoun} arms around, so we ended the'
 			' the night early to save any further headache.' ,
 
 			'Bar9':' {name} {0}, then {1}, and {2}. Enough said.',

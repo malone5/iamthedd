@@ -18,7 +18,7 @@ PERSONALITY_ACTIONS = {
 			'Angry4': 'took a drink and spilled it all over this girls shoes',
 			'Angry5': 'punched a whole in the wall',
 			'Angry6': 'was all pissy because the Patriots just lost their game that night',
-			'Angry7': 'grabbed this guy that just bumped into him and whispered in his ear, "You don\'t want to see me when I am angry."',
+			'Angry7': 'grabbed this guy that just bumped into him and whispered in his ear, "You don\'t want to see me when I am angry"',
 
 		},
 		'Responsible':
@@ -35,10 +35,10 @@ PERSONALITY_ACTIONS = {
 		},
 		'Drama-queen':
 		{
-			'Drama-queen1': 'said, "I hate about 90 percent of people in this bar"',
+			'Drama-queen1': 'admitted, "I hate about 90 percent of people in this bar"',
 			'Drama-queen2': 'yelled at me, "Why aren\'t you drinking!!!!!',
 			'Drama-queen3': 'said "ugh, I need better friends',
-			'Drama-queen4': 'claimed "my feet hurt" and that the group should go home right now.',
+			'Drama-queen4': 'claimed "my feet hurt" and that the group should go home right now',
 			'Drama-queen5': 'saw an "ex" and started crying',
 			'Drama-queen6': 'thought a girl was giving a mean look and then growled at her like a dog',
 
@@ -48,7 +48,7 @@ PERSONALITY_ACTIONS = {
 			'NoChange1': 'just stared off into space, aimlessly',
 			'NoChange2': 'took a sip of beer and continued bobbing thier head',
 			'NoChange3': 'started looking around the bar because there was nothing better to do',
-			'NoChange4': 'passed gas and hoped no one noticed.',
+			'NoChange4': 'passed gas and hoped no one noticed',
 			'NoChange5': 'mumbled, "I would rather be home watching The Notebook"',
 
 
