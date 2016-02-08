@@ -23,9 +23,9 @@
 		   		</div>
 		    	<p class="text-center"> {{ crew.crew_name }}</p>	
 		    	<div class="caption">	
-		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn btn-md sharp" title="Edit"><i class="glyphicon glyphicon-edit"></i></button></a>
+		    		<a href="{% url 'dd_app:crew' crew_id=crew.id %}"><button class="btn btn-md sharp" title="Edit"><i class="glyphicon glyphicon-edit">edit</i> </button></a>
 		    		<a href="{% url 'dd_app:delete_crew' crew.id %}">
-		    			<button class="btn btn-md sharp pull-right" title="Delete"><i class="glyphicon glyphicon-remove "></i></button>
+		    			<button class="btn btn-md sharp pull-right" title="Delete"> <i class="glyphicon glyphicon-remove "></i></button>
 		    		</a>
 		    	</div>
 		   	</div>
@@ -50,7 +50,7 @@
 	<div class="col-md-8 col-md-offset-2">
 	{% if stories %}
 		{% for story in stories %}
-		<div class="col-xs-6 col-md-3">
+		<div class="col-xs-6 col-md-3 btn">
 			<a href="{% url 'dd_app:story' story.id %}">
 			<div href="{% url 'dd_app:story' story.id %}" class="thumb">
 		    	<div  class="text-center mycrews-icon">

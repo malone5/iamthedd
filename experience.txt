@@ -1,0 +1,43 @@
+Toughest Problem: Figuring out how to format CrewMember substories in a random fashing
+
+Problem I had to overcome:
+- needed the ammount of actions to NOT be fixed so sotries could be unique.
+	-this was acheived by creating a random list of 5 actions based on personality. I chose 5 because most substories will not contain more than 5(howver this can easily be adjusted). 
+	-this way I could unpack them as the story_template was being parsed. And it would not interfere with other keyword args that were nescessary.
+
+- had to accomidate name, subjective pronouns, and objective pronouns. Along with a random list of actions
+
+- creatStory(*actions, name=name, obj_pronoun, subj_pronoun)
+	-could succesfully accomate any story template
+
+
+
+Tried:
+-Tried to make a fixed number of actions per substory but I wanted more for a better user experience.
+
+
+----------------------------------------------------------------
+
+Design changes if i had more time:
+
+Would like to make adding venues and story templtes to be dynamic thought he database. As of now it is hardcoded for time.
+
+---------------------------------------------------------
+
+Another challenge:
+
+Creating the story
+-Automatically setting the Creator as the logged in user.
+-Showing just the crews of the logged in user
+-generating all the substories of the crew.
+
+----------------------
+What would I havedon different.
+
+Made it much more simple without accounts/multiple crews/stories.
+Just a simple application where people could open the page, crete the crew and generate the story really quick.
+
+
+-------------
+
+Major problem reaccurring sentances cased some substories to be very similar.

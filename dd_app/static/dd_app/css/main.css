@@ -60,6 +60,10 @@ nav .btn-default {
   color: #1E5755;
 }
 
+.crew-page a:hover {
+  color: #FFF;
+}
+
 
 .btn{
   background-color: #1E5755;
@@ -140,6 +144,8 @@ nav .btn-default {
 .story > h3 {
   color: white;
 }
+
+
 
 
 /* icons */
