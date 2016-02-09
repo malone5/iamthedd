@@ -1,7 +1,12 @@
 {% extends "dd_app/base.html" %}
 
 {% block content %}
-
+<div class="row">
+	<div class="fluid-containter text-center">
+		<a class="btn btn-lg btn-success" href="{% url 'dd_app:create_story' %}" title="Go Create A New Story">Go Create A New Story</a>
+		
+	</div>	
+</div>
 <div class="row">
 <div class="col-md-4 col-md-offset-4 text-center">
 <p>Add and remove member from, {{ crew.crew_name }}</p>
@@ -23,6 +28,7 @@
 <hr>
 
 {% if user %}
+
 <div class="row">
 <div class="col-md-8 col-md-offset-2 ">
 	<form method="post" action="{% url 'dd_app:crew' crew.id %}">

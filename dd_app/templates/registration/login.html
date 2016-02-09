@@ -35,12 +35,17 @@
         </div>
 
         <button type="submit" value="login" class="btn btn-default" />Login</button>
+        <hr>
+        <p>No account yet? <a class="btn" href="{% url 'dd_app:register' %}" >Register!</a> It is quick!</p>
         <input type="hidden" name="next" value="{{ next }}" />
+
         </form>
 
         {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a class="btn btn-sm btn-info" href="{% url 'password_reset' %}">Lost password?</a></p>
+        
+        
 
-        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
     </div>
 </div>
 

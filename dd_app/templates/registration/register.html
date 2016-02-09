@@ -9,7 +9,9 @@
         {% csrf_token %}
 
         {% if form.error_messages.password_mismatch %}
+
         	<div class="alert alert-warning center " role="alert">{{ form.error_messages.password_mismatch }}</div>
+        	<div class="alert alert-warning center " role="alert">Also, make sure your username does not have spaces!</div>
         {% endif %}
 
 

@@ -48,7 +48,7 @@ PERSONALITY_ACTIONS = {
 			'NoChange1': 'just stared off into space, aimlessly',
 			'NoChange2': 'took a sip of beer and continued bobbing thier head',
 			'NoChange3': 'started looking around the bar because there was nothing better to do',
-			'NoChange4': 'passed gas and hoped no one noticed',
+			'NoChange4': 'passed gas, hoping no one would notice',
 			'NoChange5': 'mumbled, "I would rather be home watching The Notebook"',
 
 
