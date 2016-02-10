@@ -19,10 +19,10 @@ VENUE_TEMPLATES = {
 
 			'Bar5':' For some reason {name} was having a great time at the bar even though {subj_pronoun} stepped in dog excrement on the way to the bar. {name} was talking to everyone and people seemed to enjoy {poss_pronoun} company.'
 			' However, people began to notice the smell coming off {name}\'s shoe. {name} got nervous and {0}. This made the situation worse as people began to point out how bad'
-			' {name} smelled and the crowd was holding their nose in disgust.  {subj_pronoun} spent the next hour or so cleaning off {obj_pronoun} shoe. By the time {name} left the bathroom the bar was closing. As we left there a'
+			' {name} smelled and the crowd was holding their nose in disgust.  {subj_pronoun} spent the next hour or so cleaning off {poss_pronoun} shoe. By the time {name} left the bathroom the bar was closing. As we left there a'
 			' of people chanting "Poop shoe! Poop shoe! Poop shoe!". So now we call {name} "Poop shoe."' ,
 
-			'Bar6':' I knew {name} was going to be a problem when {subj_pronoun} {0}. Following that {name} {1}. {subj_pronoun} starting to become "that guy" at the bar no one wanted to be around. '
+			'Bar6':' I knew {name} was going to be a problem when {subj_pronoun} {0}. Following that {name} {1}. {subj_pronoun} starting to become that person at the bar everyone was avoiding. '
 			' I asked {name} to chill out and {subj_pronoun} barked, "I am perfectly fine you chill out mannnnn". Sigh, after that I just left {obj_pronoun} alone and later found {obj_pronoun}'
 			' at the front of the bar crying. I wasn\'t suprised.' ,
 

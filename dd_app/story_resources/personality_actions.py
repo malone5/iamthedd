@@ -26,7 +26,8 @@ PERSONALITY_ACTIONS = {
 			'Responsible1': 'asked everyone if they needed water.',
 			'Responsible2': 'called the cab to pick us up',
 			'Responsible3': 'got nervous because someone was missing',
-			'Responsible4': 'apologiezed and asked for forgivness',
+			'Responsible4': 'ran away because two guys started screaming at eachother',
+			'Responsible4': 'said the music was too loud for their sensitive ears',
 			'Responsible5': 'saw someone in the group walk off and chased them down so they diddn\'t get lost',
 			'Responsible6': 'washed their hands like 5 times in a row',
 			'Responsible7': 'got nervous because there were so many drunk people around',
@@ -56,7 +57,7 @@ PERSONALITY_ACTIONS = {
 		'Reckless':
 		{
 			'Reckless1': 'took three shots in a row',
-			'Reckless2': 'told the DJ to play more Rap music or he was going to report him to the Feds',
+			'Reckless2': 'told the DJ to play more Justin Beiber or else a chair would be thrown',
 			'Reckless3': 'made out with a bald girl',
 			'Reckless3': 'saw a half finished beer and decided it was a good idea to finish it',
 
