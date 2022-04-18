@@ -126,3 +126,7 @@ STATIC_URL = '/static/'
 # Auth
 LOGIN_REDIRECT_URL = '/mycrews/'
 LOGIN_URL = '/login/'
+
+# Other settings
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+

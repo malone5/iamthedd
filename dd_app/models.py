@@ -6,6 +6,7 @@ from django.db import models
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
 
@@ -15,7 +16,7 @@ from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
 class Crew(models.Model):
 	crew_name = models.CharField(max_length=20)
 	owner = models.ForeignKey(User, default=User, on_delete=models.CASCADE)
-	date_created = models.DateTimeField('date created', default=timezone.now())
+	date_created = models.DateTimeField('date created', default=timezone.now)
 
 	def __str__(self):
 		return self.crew_name
