@@ -42,7 +42,7 @@ class CreateCrewForm(forms.ModelForm):
 class CrewMember(models.Model):
 	name = models.CharField(max_length=20)
 	crew = models.ForeignKey(Crew, on_delete=models.CASCADE)
-	gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default='Male')
+	gender = models.CharField(max_length=15, choices=GENDER_CHOICES, default='Genderless')
 	personality = models.CharField(max_length=20, 
 								choices=PERSONALITY_CHOICES, 
 								default='Angry')

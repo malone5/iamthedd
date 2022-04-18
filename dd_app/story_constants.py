@@ -1,7 +1,7 @@
 ANGRY = 'Angry'
 RESPONSIBLE = 'Responsible'
 DRAMA_QUEEN = 'Drama-queen'
-NO_CHANGE = 'No Change'
+NEUTRAL = 'Neutral'
 RECKLESS = 'Reckless'
 SUPER_FRIENDLY = 'Super-friendly'
 
@@ -9,18 +9,17 @@ PERSONALITY_CHOICES = (
 	(ANGRY, 'Angry'),
 	(RESPONSIBLE, 'Responsible'),
 	(DRAMA_QUEEN, 'Drama-queen'),
-	(NO_CHANGE, 'No Change'),
+	(NEUTRAL, 'Neutral'),
 	(RECKLESS, 'Reckless'),
 	(SUPER_FRIENDLY, 'Super-friendly'),
 )
 
 GENDER_CHOICES = (
 		('Male', 'Male'),
-		('Female', 'Female')
+		('Female', 'Female'),
+		('Genderless', 'Genderless')
 	)
 
 VENUE_CHOICES = (
 	('Bar', 'Bar'),
-	
-
 )

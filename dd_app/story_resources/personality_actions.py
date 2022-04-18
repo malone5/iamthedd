@@ -44,10 +44,10 @@ PERSONALITY_ACTIONS = {
 			'Drama-queen6': 'thought a girl was giving a mean look and then growled at her like a dog',
 
 		},	
-		'No Change':
+		'Neutral':
 		{
 			'NoChange1': 'just stared off into space, aimlessly',
-			'NoChange2': 'took a sip of beer and continued bobbing thier head',
+			'NoChange2': 'took a sip of beer and continued bobbing their head',
 			'NoChange3': 'started looking around the bar because there was nothing better to do',
 			'NoChange4': 'passed gas, hoping no one would notice',
 			'NoChange5': 'mumbled, "I would rather be home watching The Notebook"',
@@ -64,10 +64,10 @@ PERSONALITY_ACTIONS = {
 		},
 		'Super-friendly':
 		{
-			'Super-friendly1': 'hugged a random guy and saying, "you look like I could love you"',
+			'Super-friendly1': 'hugged a random person saying, "I love you"',
 			'Super-friendly2': 'laughed uncontrollably',
 			'Super-friendly3': 'danced in the middle of the dance floor when no one else was out there',
-			'Super-friendly4': 'bought a random gorup of people drinks, but the credit card got declined after they were poured, forcing the random group to pay',
+			'Super-friendly4': 'bought a random group a round of drinks',
 			'Super-friendly5': 'asked the bartender if they were hiring at this very momment in hopes for a new job',
 			'Super-friendly6': 'started a dance party in the middle of the floor',
 			'Super-friendly7': 'said "I love you" to 3 different starngers',
