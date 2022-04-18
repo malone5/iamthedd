@@ -5,7 +5,7 @@ from django import forms
 from django.db import models
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
 
@@ -14,7 +14,7 @@ from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
 
 class Crew(models.Model):
 	crew_name = models.CharField(max_length=20)
-	owner = models.ForeignKey(User, default=User)
+	owner = models.ForeignKey(User, default=User, on_delete=models.CASCADE)
 	date_created = models.DateTimeField('date created', default=timezone.now())
 
 	def __str__(self):
@@ -39,11 +39,8 @@ class CreateCrewForm(forms.ModelForm):
 
 
 class CrewMember(models.Model):
-
-	
-
 	name = models.CharField(max_length=20)
-	crew = models.ForeignKey(Crew)
+	crew = models.ForeignKey(Crew, on_delete=models.CASCADE)
 	gender = models.CharField(max_length=6, choices=GENDER_CHOICES, default='Male')
 	personality = models.CharField(max_length=20, 
 								choices=PERSONALITY_CHOICES, 
@@ -66,8 +63,8 @@ class CreateCrewMemberForm(forms.ModelForm):
 
 class Story(models.Model):
 	story_name = models.CharField(max_length=30)
-	crew = models.ForeignKey(Crew)
-	creator = models.ForeignKey(User)
+	crew = models.ForeignKey(Crew, on_delete=models.CASCADE)
+	creator = models.ForeignKey(User, on_delete=models.CASCADE)
 	venue = models.CharField(max_length=20,
 							choices=VENUE_CHOICES,
 							default='Bar')
@@ -97,8 +94,8 @@ class CreateStoryForm(forms.ModelForm):
 
 
 class MemberSubStory(models.Model):
-	story = models.ForeignKey(Story)
-	member = models.ForeignKey(CrewMember)
+	story = models.ForeignKey(Story, on_delete=models.CASCADE)
+	member = models.ForeignKey(CrewMember, on_delete=models.CASCADE)
 	content = models.TextField()
 
 	class Meta:

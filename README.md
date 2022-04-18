@@ -10,3 +10,7 @@ When a user wants to generate a story all they have to do is give the story a na
 The app then generates a short story for each member of the "crew" that will be told throught he perspective of the designated driver(the user).
 
 http://malone5.pythonanywhere.com/
+
+## Getting Started
+
+
