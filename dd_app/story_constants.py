@@ -22,4 +22,6 @@ GENDER_CHOICES = (
 
 VENUE_CHOICES = (
 	('Bar', 'Bar'),
+	('Music Festival', 'Music Festival'),
+	('Wedding', 'Wedding'),
 )

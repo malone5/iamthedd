@@ -1,0 +1,115 @@
+{% extends "dd_app/base.html" %}
+
+{% block content %}
+{% if user %}
+<div class="container">
+
+    <h2>Existing Templates</h2>
+    <table class="table">
+        <tr>
+            <th><b>Venue</b></th>
+            <th><b>Story Template</b></th>
+            <th><b>Creator</b></th>
+            <th><b>Delete</b></th>
+        </tr>
+        
+        {% for st in story_template_list %}
+        <tr>
+            <td>{{st.venue}}</td>
+            <td>{{st.template}}</td>
+            <td>{{st.creator}}</td>
+            <td>
+                <a href="{% url 'dd_app:delete_template' st.id %}">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    
+    
+    <hr>
+
+    <h2>New Template</h2>
+    <div>Remember, these templates are for a single individual story in a crew</div>
+    <form action="{% url 'dd_app:templates' %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.venue.errors }}
+            {{ form.venue.label_tag }}
+            {{ form.venue }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.template.errors }}
+            <a id="name_placeholder" class="btn btn-default" role="button">Name</a>
+            <a id="action_placeholder" class="btn btn-default" role="button">Action/Event</a>
+            <a id="s_pronoun_placeholder" class="btn btn-default" role="button">Subject Pronoun</a>
+            <a id="o_pronoun_placeholder" class="btn btn-default" role="button">Object Pronoun</a>
+            <a id="p_pronoun_placeholder" class="btn btn-default" role="button">Possesive Pronoun</a>
+            <div>{{ form.template }}</div>
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+    
+    <!-- Javascript on buttons for building story templates -->
+    <script>
+        // Track cursor position
+        let currentInput = document.getElementById('text1');
+        $(document).on('click', 'textarea', function() {
+            currentInput = this;
+        })
+
+        let insertTextInElement = function(text) {
+            let cursorPos = currentInput.selectionStart;
+            let v = currentInput.value;
+            let textBefore = v.substring(0,  cursorPos );
+            let textAfter = v.substring( cursorPos, v.length );
+            currentInput.value = textBefore + text + textAfter;
+            currentInput.focus();
+            cursorPos += text.length
+            currentInput.setSelectionRange(cursorPos, cursorPos);
+
+        }
+
+        // form elements
+        const textarea = document.getElementById('{{ form.template.id_for_label }}');
+
+        const name_btn = document.getElementById('name_placeholder');
+        const subj_pronoun_btn = document.getElementById('s_pronoun_placeholder');
+        const obj_pronoun_btn = document.getElementById('o_pronoun_placeholder');
+        const poss_pronoun_btn = document.getElementById('p_pronoun_placeholder');
+        const action_btn = document.getElementById('action_placeholder');
+
+        // button events
+        name_btn.addEventListener('click', function(el) {
+            insertTextInElement('{name}')
+        });
+        subj_pronoun_btn.addEventListener('click', function() {
+            insertTextInElement('{subj_pronoun}')
+        });
+        obj_pronoun_btn.addEventListener('click', function() {
+            insertTextInElement('{obj_pronoun}')
+        });
+        poss_pronoun_btn.addEventListener('click', function() {
+            insertTextInElement('{poss_pronoun}')
+        });
+        action_btn.addEventListener('click', function() {
+            insertTextInElement('{action_event}')
+        });
+
+    </script>
+
+    <div>
+        Subject pronouns = he/she/they<br>
+        Object pronouns = him/her/them<br>
+        Possesive pronouns = his/her/their<br>
+    </div> 
+
+</div>
+
+
+{% endif %}
+{% endblock %}

@@ -1,21 +1,19 @@
 import random
+import itertools
 from .story_resources.venue_templates import VENUE_TEMPLATES
 from .story_resources.personality_actions import PERSONALITY_ACTIONS
+from .models import StoryTemplate
 
 
 class StoryGenerator(object):
 	"""docstring for StoryGenerator"""
 	def __init__(self, venue):
 		super(StoryGenerator, self).__init__()
-		# self.story_variables = story_variables
-		# seld.dd = story_variables['creator']
-		# self.crew = story_variables['crew']
 		self.venue = venue
 
 
 	def createSubStory(self, member):
 		"""Returns a substory and a string"""
-		#what we nedd
 		substory_template = ""
 		obj_pronoun = ""
 		subj_pronoun = ""
@@ -23,7 +21,10 @@ class StoryGenerator(object):
 		name = member.name
 		personality = member.personality
 
-		substory_template = random.choice(list(VENUE_TEMPLATES[self.venue].values()))
+		# Pick random venue template
+		venue_templates = StoryTemplate.objects.filter(venue__exact=self.venue)
+		substory_template = random.choice([tmp.template for tmp in venue_templates])
+
 
 		if member.gender == "Male":
 			obj_pronoun = "him"
@@ -38,13 +39,22 @@ class StoryGenerator(object):
 			subj_pronoun = "they"
 			poss_pronoun = "their"
 
-		for i in range(5):
-			#pick a random action based on personality and add it to the actions list
-			action = random.choice(list(PERSONALITY_ACTIONS[self.venue][personality].values()))
-			actions.append(action)
+
+		placeholder_count = substory_template.count('{}')
+		available_actions = list(PERSONALITY_ACTIONS[personality].values())
+		random.shuffle(available_actions)
+
+		# We will get an Index Error if our template has more placeholders than actions
+		# We solve this by sprinkling in a default actions to backfill placholders.
+		if placeholder_count > len(available_actions):
+			default_action = "winked at me"
+			for _ in range(placeholder_count-len(available_actions)):
+				available_actions.append(default_action)
+			# Shuffle the winks in
+			random.shuffle(available_actions)
 
 
-		formatted_story = substory_template.format(*actions, 
+		formatted_story = substory_template.format(*available_actions, 
 													name=name, 
 													obj_pronoun=obj_pronoun, 
 													subj_pronoun=subj_pronoun,

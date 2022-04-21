@@ -1,0 +1,51 @@
+
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "password": "pbkdf2_sha256$320000$F4UgxxpE20830oByOPBW3k$WY5O32o22iFJ88FTpXuQ5I11fo3WOEP2WFHldNVsfHw=",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 1,
+    "fields": {
+      "venue": "BadVenue",
+      "template":"{}, {}, {}, {}, {}, {}, {}, {}, {}, {}",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.Crew",
+    "pk": 1,
+    "fields": {
+      "crew_name": "Cool Crew",
+      "owner": 1
+    }
+  },
+  {
+    "model": "dd_app.CrewMember",
+    "pk": 1,
+    "fields": {
+      "name": "Moe",
+      "crew": 1,
+      "gender": "Genderless",
+      "personality": "Angry"
+    }
+  },
+  {
+    "model": "dd_app.CrewMember",
+    "pk": 2,
+    "fields": {
+      "name": "Howard",
+      "crew": 1,
+      "gender": "Male",
+      "personality": "Neutral"
+    }
+  }
+]

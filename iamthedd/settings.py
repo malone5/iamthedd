@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret_key used in production secret!
 # Generate your own key: https://django-secret-key-generator.netlify.app/
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-dev-secret-not-for-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,6 +127,6 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/mycrews/'
 LOGIN_URL = '/login/'
 
-# Other settings
+# DB field settings
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

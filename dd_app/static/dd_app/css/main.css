@@ -15,13 +15,11 @@ nav .btn-default {
   margin: 0px;
   background-color: #872C2C;
   border: 2px solid #872C2C;
-  font-size: 14px;
   color: black;
   -webkit-text-stroke: 3px black;
 }
 
 .block-content {
-  font-size: 3vmin;
   line-height: 1.4;
 }
 
@@ -171,4 +169,8 @@ nav .btn-default {
 
 .icon-my-crews::before  {
   background: url(../img/my-crews.svg)
+}
+
+.icon-templates::before  {
+  background: url(../img/profile.svg)
 }

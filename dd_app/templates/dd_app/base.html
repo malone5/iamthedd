@@ -21,6 +21,13 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="{% static 'dd_app/js/jquery-2.1.4.js' %}"></script>
+  <script src="{% static 'dd_app/js/main.js' %}"></script>
+
+  <script src="{% static 'dd_app/js/stretchmain.js' %}"></script> <!-- Resource jQuery -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 
   
   <link rel="stylesheet" href="{% static 'dd_app/css/stretchmenu.css' %}"> <!-- Resource style -->
@@ -28,6 +35,8 @@
   <link rel="stylesheet" href="{% static 'dd_app/css/buttons.css' %}"> <!-- Buttons style -->
   <link rel="stylesheet" href="{% static 'dd_app/css/main.css' %}"> <!-- Custom style -->
   <script src="{% static 'dd_app/js/modernizr.js' %}"></script> <!-- Modernizr -->
+
+  
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -50,6 +59,15 @@
     </div>
   </div>
 
+  <!-- Messages -->
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <div class="alert alert-{{message.tags}}" role="alert">{{message}}</div>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
   
     <div class="block-content">
     {% block content %}{% endblock %} {# </main> in here #}
@@ -67,6 +85,7 @@
           <li><a class="icon-home" href="{% url 'dd_app:index' %}">Home</a></li>
           {% if user.is_authenticated %}
           <li><a class="icon-my-crews" href="{% url 'dd_app:mycrews' %}">Crews/Stories</a></li>
+          <li><a class="icon-templates" href="{% url 'dd_app:templates' %}">Templates</a></li>
           <li><a class="icon-logout" href="{% url 'dd_app:logout' %}">Logout</a></li>
           {% else %}
           <li><a class="icon-login" href="{% url 'dd_app:login' %}">Login</a></li>
@@ -83,11 +102,6 @@
 
 
     
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="{% static 'dd_app/js/jquery-2.1.4.js' %}"></script>
-  <script src="{% static 'dd_app/js/main.js' %}"></script>
-
-  <script src="{% static 'dd_app/js/stretchmain.js' %}"></script> <!-- Resource jQuery -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
 </body>
 </html>

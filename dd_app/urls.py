@@ -1,9 +1,11 @@
-from django.urls import re_path 
+from django.urls import re_path, path
 from django.contrib.auth import views as auth_views
 
 
 from . import views
-from dd_app.views import CrewView, RegisterView, CreateCrewView, DeleteCrewMemberView, DeleteCrewView, DeleteStoryView, CreateStoryView
+from dd_app.views import (CrewView, RegisterView, CreateCrewView, 
+	DeleteCrewMemberView, DeleteCrewView, DeleteStoryView, CreateStoryView, 
+	StoryTemplateListView, DeleteStoryTemplateView)
 
 
 app_name = 'dd_app'
@@ -26,6 +28,7 @@ urlpatterns = [
 	
 	re_path(r'^story/(?P<story_id>[0-9]+)/$', views.story, name='story'),
 
-
+	path('templates/', StoryTemplateListView.as_view(), name='templates'),
+	path('templates/<int:pk>/delete/', DeleteStoryTemplateView.as_view(), name='delete_template'),
 
 ]

@@ -12,11 +12,12 @@ from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 
 from . import models
-from .models import Crew, CrewMember, Story, MemberSubStory, CreateCrewForm, CreateCrewMemberForm, CreateStoryForm
-from .forms import UserCreateForm
+from .models import Crew, CrewMember, Story, MemberSubStory, CreateCrewForm, CreateCrewMemberForm, CreateStoryForm, StoryTemplate
+from .forms import UserCreateForm, StoryTemplateForm
 from .generator import StoryGenerator
 
 
@@ -166,7 +167,6 @@ class CreateStoryView(View):
 			gen = StoryGenerator(venue=story_obj.venue)
 			crew_members = CrewMember.objects.filter(crew=story_obj.crew)
 			for member in crew_members:
-				print("Creating substory for: ".format(member.name))
 				substory = gen.createSubStory(member)
 				submitted_substory = MemberSubStory.objects.create(story=story_obj, member=member, content=substory)
 				if submitted_substory == None:
@@ -178,6 +178,7 @@ class CreateStoryView(View):
 			return render(request, 'dd_app/new_story.html', {'form': form})
 
 
+
 def story(request, story_id):
 	context = {}
 	story = Story.objects.get(id=story_id)
@@ -186,3 +187,52 @@ def story(request, story_id):
 	context['substories'] = substories
 
 	return render(request, 'dd_app/story.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class StoryTemplateListView(View):
+
+	def get(self, request):
+		context = {}
+		context['story_template_list'] = StoryTemplate.objects.all()
+		context['form'] = StoryTemplateForm()
+		return render(request, 'dd_app/storytemplate_list.html', context)
+
+	def post(self, request):
+		form = StoryTemplateForm(request.POST)
+		if form.is_valid():
+			# save to db
+			st = form.save(commit=False)
+			st.creator = request.user
+			st.save()
+			messages.success(request, "New story template added!")
+			return HttpResponseRedirect('/templates/')
+		
+		messages.error(request, "Something went wrong creating story!")
+		return HttpResponseRedirect('/templates/')
+
+
+
+@method_decorator(login_required, name='dispatch')
+class StoryTemplateView(View):
+
+	def get(self, request):
+
+		form = StoryTemplateForm()
+		return render(request, 'dd_app/create_storytemplate.html', {'form': form})
+
+	def post(self, request):
+		form = StoryTemplateForm(request.POST)
+
+		if form.is_valid():	
+			return HttpResponseRedirect('/templates/') # should change this to rediract to the story page
+		else:
+			return render(request, 'dd_app/new_story.html', {'form': form})
+
+@method_decorator(login_required, name='dispatch')
+class DeleteStoryTemplateView(DeleteView):
+	model = StoryTemplate
+	template_name = 'dd_app/delete_confirm_template.html'
+
+	def get_success_url(self):
+		return reverse('dd_app:templates')

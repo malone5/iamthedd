@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import re
+from itertools import count
 from django.utils import timezone
 from django import forms
 from django.db import models
@@ -11,8 +13,6 @@ from django.utils import timezone
 from .story_constants import VENUE_CHOICES, GENDER_CHOICES, PERSONALITY_CHOICES
 
 # Create your models here
-
-
 class Crew(models.Model):
 	crew_name = models.CharField(max_length=20)
 	owner = models.ForeignKey(User, default=User, on_delete=models.CASCADE)
@@ -111,6 +111,28 @@ class MemberSubStory(models.Model):
 		return member_list
 
 
-    
-       
-    
+
+class StoryTemplate(models.Model):
+
+
+	id = models.BigAutoField(primary_key=True)
+	venue = models.CharField(max_length=20,
+							choices=VENUE_CHOICES,
+							default='Bar')
+	template = models.TextField()
+	creator = models.CharField(max_length=255)
+
+	class Meta:
+		verbose_name = "StoryTemplate"
+		verbose_name_plural = "StoryTemplates"
+
+	def __str__(self):
+		return "'{}:{}' By: {}.".format(self.venue, self.id, self.creator)
+
+	def convert_to_empty_curlybraces(self, placeholder='{action}'):
+		""" given a substring, convert each occurance to use empty placeholders (i.e {}, {}, etc.."""
+		self.template = self.template.replace(placeholder, '{}')
+
+
+
+
