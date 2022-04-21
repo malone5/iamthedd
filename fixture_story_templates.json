@@ -1,0 +1,129 @@
+
+[
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 1,
+    "fields": {
+      "venue": "Bar",
+      "template": "It all started when {name} {}. {subj_pronoun} was banned from the bar.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 2,
+    "fields": {
+      "venue": "Bar",
+      "template": "When we got to the bar {name} {} and proceeded to dance. {name} was the life of the pary.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 3,
+    "fields": {
+      "venue": "Bar",
+      "template": "We were all having a great tim until {name} {}, {}, then {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 4,
+    "fields": {
+      "venue": "Bar",
+      "template": "I like hanging out with {name}. Especially when {subj_pronoun} {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 5,
+    "fields": {
+      "venue": "Bar",
+      "template": "Last time we were here {name} {}. But this was worse when {subj_pronoun} {} then {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 6,
+    "fields": {
+      "venue": "Wedding",
+      "template": "It was a beutiful day until {name} {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 7,
+    "fields": {
+      "venue": "Wedding",
+      "template": "The best man {}, which somehow inspired {name} to {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 8,
+    "fields": {
+      "venue": "Wedding",
+      "template": "When the bride threw the bouque {name} {}. It didn't make much sense to me either.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 9,
+    "fields": {
+      "venue": "Wedding",
+      "template": "My favorite part of the wedding what when {name} {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 10,
+    "fields": {
+      "venue": "Wedding",
+      "template": "Sometimes I question why I bring {name} to the things. {poss_pronoun} temperment is unpredictable. For example, {subj_pronoun} {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 11,
+    "fields": {
+      "venue": "Music Festival",
+      "template": "You know the music was good because {name} {}.",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 12,
+    "fields": {
+      "venue": "Music Festival",
+      "template": "I lost {name} for 5 hours. I found {obj_pronoun} when {subj_pronoun} {}",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 13,
+    "fields": {
+      "venue": "Music Festival",
+      "template": "I liked it when {name} {}. I didn't like it when {name} {}",
+      "creator": "default"
+    }
+  },
+  {
+    "model": "dd_app.StoryTemplate",
+    "pk": 14,
+    "fields": {
+      "venue": "Music Festival",
+      "template": "{name} is a unhinged at music festivals. I had to pull them away when {name} {}",
+      "creator": "default"
+    }
+  }
+]

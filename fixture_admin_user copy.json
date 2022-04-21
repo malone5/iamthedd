@@ -12,28 +12,10 @@
     }
   },
   {
-    "model": "dd_app.StoryTemplate",
-    "pk": 1,
-    "fields": {
-      "venue": "Bar",
-      "template": "It all started when {name} {}. {subj_pronoun} was banned from the bar.",
-      "creator": "default"
-    }
-  },
-  {
-    "model": "dd_app.StoryTemplate",
-    "pk": 2,
-    "fields": {
-      "venue": "Wedding",
-      "template": "It was a beutiful day until {name} {}.",
-      "creator": "default"
-    }
-  },
-  {
     "model": "dd_app.Crew",
     "pk": 1,
     "fields": {
-      "crew_name": "Cool Crew",
+      "crew_name": "Example Crew",
       "owner": 1
     }
   },

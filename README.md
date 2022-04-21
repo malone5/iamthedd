@@ -13,4 +13,24 @@ http://malone5.pythonanywhere.com/
 
 ## Getting Started
 
+- Clone the repo
+```$ git clone https://github.com/malone5/iamthedd.git```
+```$ cd iamthedd``` 
+- create virtualenv and instal dependancies
+```$ virtualenv venv```
+```$ source venv/bin/activate```
+```$ pip install -r requirements.txt```
+- Initialize database
+```$ python manage.py migrate```
+- Run dev server
+```$ python manage.py runserver```
 
+### Populating the database
+You have your development server running. But there are no story templates! If you try to generate a story without story templates you will see that all stories are the same default template.
+To help this, I create fixture data to get you going and populate the database so you don't have to start from scratch every time the database is initialized. 
+
+Initialize simple default story templates 
+ ```$ python manage.py loaddata fixture_story_templates.json```
+
+Create an admin user ```(un:admin pw:admin)``` **development only!**
+ ```$ python manage.py loaddata fixture_admin_user.json```
