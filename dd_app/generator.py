@@ -1,6 +1,5 @@
 import random
 import itertools
-from .story_resources.venue_templates import VENUE_TEMPLATES
 from .story_resources.personality_actions import PERSONALITY_ACTIONS
 from .models import StoryTemplate
 
@@ -17,12 +16,16 @@ class StoryGenerator(object):
 		substory_template = ""
 		obj_pronoun = ""
 		subj_pronoun = ""
-		actions = []
 		name = member.name
 		personality = member.personality
 
 		# Pick random venue template
 		venue_templates = StoryTemplate.objects.filter(venue__exact=self.venue)
+		if not venue_templates:
+			no_template_story = f"""{name} got lost on their way to the {self.venue} 
+					because No story templates exists for the {self.venue} venue yet!"""
+			return no_template_story
+
 		substory_template = random.choice([tmp.template for tmp in venue_templates])
 
 

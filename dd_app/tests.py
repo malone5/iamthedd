@@ -89,3 +89,16 @@ class BadTemplateTests(TestCase):
 		substory = story.createSubStory(member)
 		self.assertIn('winked at me', substory)
 
+	# Edge case
+	def test_no_templates_exist(self):
+		""" When no templates exist for the venue"""
+		user = User.objects.create_user(username='tester', password='pass')
+		crew = Crew.objects.create(crew_name="My Crew", owner=user)
+		member = CrewMember.objects.create(name="crewman", crew=crew, personality="Angry")
+		story = StoryGenerator('NonExistingVenue')
+		substory = story.createSubStory(member)
+		expected = """crewman got lost on their way to the NonExistingVenue 
+					because No story templates exists for the NonExistingVenue venue yet!"""
+		self.assertEquals(expected, substory)
+
+
