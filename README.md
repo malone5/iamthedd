@@ -22,7 +22,7 @@ $ cd iamthedd
 - create virtualenv and instal dependancies
 ```
 $ virtualenv venv
-$ source venv/bin/activate```
+$ source venv/bin/activate
 $ pip install -r requirements.txt
 ```
 - Initialize database
